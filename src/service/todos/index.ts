@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 import { ITodoState } from './types'
-import { TodoService } from './actions'
-import { EToastVersions, showNotification } from 'libraries'
+import { fetchTodos } from './actions'
 
 const useTodos = create<ITodoState>((set, get) => ({
   todoList: {
@@ -18,21 +17,7 @@ const useTodos = create<ITodoState>((set, get) => ({
   setError: (error: object) => {
     set(state => ({ todoList: { ...state.todoList, loading: false, error } }))
   },
-  fetchTodos: async () => {
-    try {
-      get().setLoading()
-
-      const serviceResponse = await new TodoService().getDetailTodo(5)
-
-      showNotification(EToastVersions.success, 'Todos received successfully')
-
-      get().setData(serviceResponse.data)
-    } catch (error: object | any) {
-      showNotification(EToastVersions.error, 'Failed to receive todos')
-
-      get().setError(error)
-    }
-  },
+  fetchTodos: async () => await fetchTodos(get),
 }))
 
 export default useTodos
