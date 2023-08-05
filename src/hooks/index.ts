@@ -1,5 +1,2 @@
-export { default as useResponsive } from './useResponsive'
-export { default as useOnClickOutside } from './useOnClickOutside'
-export { default as useLockBodyScroll } from './useLockBodyScroll'
 export { default as useAuthentication } from './useAuthentication'
 export { default as useLanguageTranslation } from './useLanguageTranslation'

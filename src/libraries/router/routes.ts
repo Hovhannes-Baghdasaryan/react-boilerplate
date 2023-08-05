@@ -4,8 +4,6 @@ import { ERoutePaths, TRoutePageType } from './types'
 
 const Home = lazy(() => import('pages/Home'))
 
-// const ProgramIntro = lazy(() => import('pages/ProgramIntro'))
-
 const routesList: TRoutePageType[] = [
   {
     element: Home,

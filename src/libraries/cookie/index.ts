@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
 export const getCookie = (name: string) => {
-  return Cookies?.get(name) as string | number
+  return Cookies.get(name) as string | number
 }
 
 export const removeCookie = (name: string) => {
